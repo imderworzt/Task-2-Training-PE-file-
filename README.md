@@ -36,6 +36,25 @@ OPTIONAL_HEADER: bao gồm 224 bytes tiếp theo sau FILE_HEADER. Cấu trúc n�
 
 Section Table là thành phần ngày sau PE Header, bao gồm một mảng những cấu trúc IMAGE_SECTION_HEADER, mỗi phần tử chứa thông tin về một section trong PE file.
 
+## Các Section:
+
+  - .text (hoặc CODE): Chứa mã máy thực thi (executable code) của chương trình, thường là nơi bắt đầu phân tích mã độc.
+    
+  - .data: Chứa các biến toàn cục và dữ liệu đã được khởi tạo (initialized data).
+    
+  - .rdata: Chứa dữ liệu chỉ đọc (read-only initialized data), bao gồm cả bảng nhập (Import Address Table - IAT).
+    
+  - .bss: Chứa các dữ liệu chưa được khởi tạo (uninitialized data), giúp tối ưu kích thước file trên đĩa.
+    
+  - .rsrc: Chứa các tài nguyên của chương trình như icon, hình ảnh, menu, dialog.
+    
+  - .idata: Chứa thông tin về các hàm nhập (import functions), bao gồm import directory và IAT.
+    
+  - .edata: Chứa các bảng xuất (export directory) của các file DLL.
+    
+  - .tls: Chứa dữ liệu Thread Local Storage, quan trọng cho việc phân tích các kỹ thuật chống debug.
+    
+
 ## Cách một chương trình được nạp từ ổ đĩa lên RAM
 
 Khi thực hiện khởi động 1 chương trình, Hệ điều hành sẽ nhận được tín hiệu và bắt đầu tìm kiếm tệp tin thực thi
